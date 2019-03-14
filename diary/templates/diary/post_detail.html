@@ -1,0 +1,16 @@
+{% extends "diary/wrapper.html"%}
+
+{% block title %}
+    {{post.title}}-{{post.super}}
+{% endblock %}
+
+{%  block content %}
+<a href="{% url 'post_list_url'%}" class="btn btn-primary">Назад</a>
+    <h4 class="mt-5">
+        {{post.date}}
+    </h4>
+    <p>
+        {{post.body}}
+    </p>
+
+{% endblock %}

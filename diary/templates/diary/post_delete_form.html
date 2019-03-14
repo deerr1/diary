@@ -1,0 +1,15 @@
+{% extends "diary/wrapper.html" %}
+
+{% block title %}
+    Удаление заметки-{{block.super}}
+{% endblock %}
+
+{% block content %}
+    <form class= "" action="{{ articles.get_delete_url }}" method="post">
+        {% csrf_token %}
+
+        <h2>Удалить эту заметку?</h2>
+        <button type="submit" name="button" class="btn btn-primary">Окей</button>
+        <a href="{% url 'post_list_url'%}" class="btn btn-primary">Отмена</a>
+    </form>
+{% endblock %}

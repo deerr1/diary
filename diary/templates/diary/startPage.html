@@ -1,0 +1,17 @@
+{% extends "diary/wrapper.html" %}
+
+{% block content %}
+    {% for post in posts %}
+    <div class="card">
+            <div class="card-header">
+                <h4>{{post.date}}</h4>
+            </div>
+            <div class="card-body">
+              <p class="card-text"><h2>{{post.body|truncatewords:6}}</h2></p>
+              <a href="{% url 'post_detail_url' slug=post.slug %}" class="btn btn-primary">Читать</a>
+              <a href="{% url 'post_update_url' slug=post.slug %}" class="btn btn-primary">Изменить</a>
+              <a href="{% url 'post_delete_url' slug=post.slug %}" class="btn btn-primary">Удалить</a>
+            </div>
+          </div>
+    {% endfor %}
+{% endblock %}
